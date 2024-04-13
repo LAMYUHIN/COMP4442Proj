@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+
+    <style>
+      th{
+        font-size: 15px;
+      }
+
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light fixed-top ">
+      <div class="container">
+          <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/" title="Back to Home page">
+                          Home
+                      </a>
+                  </li>
+
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="/analysis_form" title="To analysis form">
+                          Driving behaviour information
+                      </a>
+                  </li>
+
+              </ul>
+
+          </div>
+      </div>
+  </nav>
+
+  <div class="mt-5 pt-5">
+    <table class="table table-striped mt-5 pt-5" style="width:100%">
+      <thead>
+        <tr>
+          <th>Driver ID</th>
+          <th>Car Plate No.</th>
+          <th>Rapid speedups</th>
+          <th>Rapid slowdowns</th>
+          <th>Oil leak count</th>
+          <th>H throttle stop count</th>
+          <th>Overspeed count</th>
+          <th>Fatigue driving count</th>
+          <th>Total overspeed time (s)</th>
+          <th>Total neutral slide time (s)</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      {% for row in report %}
+        <tr>
+          <td>{{ row['driverID'] }}</td>
+          <td>{{ row['carPlateNumber'] }}</td>
+          <td>{{ row['Total_rapid_speedup_count'] }}</td>
+          <td>{{ row['Total_rapid_slowdown_count'] }}</td>
+          <td>{{ row['Total_oil_leak_count'] }}</td>
+          <td>{{ row['Total_H_throttle_stop_count'] }}</td>
+          <td>{{ row['Total_overspeed_count'] }}</td>
+          <td>{{ row['Total_fatigue_driving_count'] }}</td>
+          <td>{{ row['Total_overspeed_time'] }}</td>
+          <td>{{ row['Total_neutral_slide_time'] }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="mx-3">
+    <a href="/analysis_form"><button class="btn btn-danger my-3">Back</button></a>
+  </div>
+
+
+</body>
+</html>

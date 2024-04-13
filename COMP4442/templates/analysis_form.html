@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <title>Filter</title>
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light fixed-top ">
+        <div class="container">
+            <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" title="Back to Home page">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/analysis_form" title="To analysis form">
+                            Driving behaviour information
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <section class="pt-5">
+      <div class="container text-center mt-5 pt-5">
+        <form action = "/analysis_report" method="POST">
+            <h2>Please select a date:</h2>
+            <h5 class="pb-2">Time filter is optional</h5>
+            <select class="mb-4" style="background-color: aliceblue; width: 200px; height: 30px" id="date" name="date">
+                <option value="02">2017-01-01</option>
+                <option value="03">2017-01-02</option>
+                <option value="04">2017-01-03</option>
+                <option value="05">2017-01-04</option>
+                <option value="06">2017-01-05</option>
+                <option value="07">2017-01-06</option>
+                <option value="08">2017-01-07</option>
+                <option value="09">2017-01-08</option>
+                <option value="10">2017-01-09</option>
+                <option value="11">2017-01-10</option>
+            </select>
+            <div class="mb-3">
+                <small>From:</small><input type="time" name="sTime" min="08:00" max="24:00"/>
+            </div>
+            <div class="pb-2">
+                <small>Until:</small><input type="time" name="eTime" min="08:00" max="24:00"/>
+            </div>
+            <div class="mx-3 mt-2 text-center">
+                <input class="btn btn-primary" type="submit" value="Submit"/>
+            </div>
+
+        </form>
+      </div>
+    </section>
+
+  <div class="mx-3 text-center">
+    <a href="/"><button class="btn btn-danger my-3">Back</button></a>
+  </div>
+
+  </body>
+</html>
